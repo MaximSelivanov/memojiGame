@@ -1,0 +1,83 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #cfd0cf;
+}
+
+.header {
+    line-height: 47px;
+    font: 42px Arial;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.memoji-field {
+    width: 595px;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+    margin: 0 auto;
+    perspective: 600px;
+}
+
+.memoji-card {
+	width: 130px;
+	min-height: 130px;
+	position: relative;	
+    margin-bottom: 25px;
+    color: #434343;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+
+}
+
+.memoji-card.flip {
+    transform: rotateY(180deg);
+} 
+
+.front, .back {
+	width: 100%;
+	height: 100%; 
+	left: 0;
+	top: 0;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+    position: absolute;
+	border: 5px solid #ffffff;
+	border-radius: 9px;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5)
+
+} 
+
+.front {
+	background: linear-gradient(45deg, #22ab93, #19668d);
+}
+
+.back {
+	background-color: #ffffff;
+	font-size: 75px;  
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+.right-card .back {
+	background-color: #5ad66f;
+	border-color: #5ad66f;
+}
+
+.wrong-card .back {
+	background-color: #f44336;
+	border-color: #f44336;
+}
+
+
+
+
+
