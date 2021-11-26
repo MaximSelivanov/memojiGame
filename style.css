@@ -25,9 +25,11 @@ body {
 
 .header {
     line-height: 47px;
-    font: 42px Arial;
+    font-size: 42px;
+    font-family: Arial, sans-serif;
     padding: 40px 0;
     text-align: center;
+    color: #434344;
 }
 
 .memoji-field {

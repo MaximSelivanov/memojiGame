@@ -12,6 +12,13 @@ let time = 0;
 let timerOn = false;
 let timerOff = false;
 
+//Перемешиваем карты
+function shuffle() {
+    cards.forEach(card => {
+      let randomPos = Math.floor(Math.random() * 12);
+      card.style.order = randomPos;
+    });
+  };
 
 //Сброс игры
 function resetField() {
@@ -23,7 +30,6 @@ function resetField() {
     f = 0;
     [hasFlippedCard, lockField, timerOff, timerOn] = [false, false, false, false];
     [firstCard, secondCard] = [null, null];
-
     timer.innerHTML = '';
 }
  
@@ -55,30 +61,23 @@ function flipCard() {
     if (lockField) {
         unflipCards();
     };
-
     if (this === firstCard) return;
-
     this.classList.add('flip');
     this.classList.remove('wrong-card');
-
     if (!hasFlippedCard) {
         hasFlippedCard = true;
         firstCard = this;
         return;
     }
-
     hasFlippedCard = false;
     secondCard = this;
-
     checkForMatch();
 }
-
 
 //Отключение карты
 function disableCards() {
     f += 1;
-    if (f === 6) {
-        
+    if (f === 6) { 
         modalWindow('Win')
     }
 
@@ -122,7 +121,6 @@ function countDown() {
       if (i === 0) {
         timerOff = true;
         modalWindow('Lose')
-       
       }
       checkTime();
       if (timerOff) return;
@@ -135,19 +133,10 @@ function countDown() {
     oneCard.addEventListener('click', countDown);
   });
 
-//Перемешиваем карты (IIFE (Immediately Invoked Function Expression))
-
-function shuffle() {
-    cards.forEach(card => {
-      let randomPos = Math.floor(Math.random() * 12);
-      card.style.order = randomPos;
-    });}
-  
-
-  //Gоявления модального окна пр выигрыше или проигрыше
+  //Появления модального окна пр выигрыше или проигрыше
   function modalWindow(res) {
-    clearInterval(time)
-
+    clearInterval(time);
+    
     //Создаем элементы в html документе
     var modal = document.createElement('div');
     modal.classList.add('modal');
