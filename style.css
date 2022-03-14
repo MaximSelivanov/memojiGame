@@ -68,7 +68,8 @@ body {
     position: absolute;
 	border: 5px solid #ffffff;
 	border-radius: 9px;
-	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5)
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+	backface-visibility: hidden;
 
 } 
 
